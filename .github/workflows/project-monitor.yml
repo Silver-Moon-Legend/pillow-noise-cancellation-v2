@@ -1,0 +1,35 @@
+name: Project Progress Monitor
+
+on:
+  schedule:
+    # 每天早上9点运行
+    - cron: '0 9 * * *'
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt || true
+    
+    - name: Run progress monitor
+      run: |
+        python scripts/进度监控.py
+    
+    - name: Update progress report
+      run: |
+        python scripts/进度监控.py > 文档/进度监控报告_$(date +%Y-%m-%d).md
+        git add 文档/进度监控报告_$(date +%Y-%m-%d).md
+        git commit -m "自动更新进度报告 $(date +%Y-%m-%d)"
+        git push
