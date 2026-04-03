@@ -1,0 +1,38 @@
+# OpenClaw Profiles配置
+# 枕边降噪设备项目
+
+# 算法专家Profile
+algorithm-expert:
+  name: "算法专家"
+  description: "负责降噪算法开发"
+  skills: ["signal-processing"]
+  workspace: "/root/.openclaw/workspace/projects/降噪设备/算法"
+  thinking: true  # 启用深度思考
+  
+# 嵌入式专家Profile  
+embedded-expert:
+  name: "嵌入式专家"
+  description: "负责STM32固件开发"
+  skills: ["stm32-cubemx"]
+  workspace: "/root/.openclaw/workspace/projects/降噪设备/嵌入式"
+  
+# 硬件专家Profile
+hardware-expert:
+  name: "硬件工程师"
+  description: "负责PCB设计和硬件系统"
+  skills: []  # 暂无专门技能，但可使用通用技能
+  workspace: "/root/.openclaw/workspace/projects/降噪设备/硬件"
+  
+# 声学专家Profile
+acoustic-expert:
+  name: "声学工程师"
+  description: "负责声学设计和喇叭腔体优化"
+  skills: ["signal-processing"]
+  workspace: "/root/.openclaw/workspace/projects/降噪设备/声学"
+
+# 项目经理Profile
+project-manager:
+  name: "项目经理"
+  description: "协调各专家工作，管理项目进度"
+  skills: ["github"]
+  workspace: "/root/.openclaw/workspace/projects/降噪设备"
